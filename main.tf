@@ -12,7 +12,7 @@ provider "google" {
 }
 
 resource "google_service_account" "default" {
-  account_id   = "108428509281239246512"
+  account_id   = "b770b1f2f5fc25f0e220f335dc656d685a597c3e"
   display_name = "Service Account"
 }
 
@@ -42,7 +42,7 @@ resource "google_compute_instance" "default" {
     }
   }
 
-  metadata = {
-    sshKey = “debian:${file(var.ssh_public_key_filepath)}”
-  }
+#   metadata = {
+#     sshKey = “debian:${file(var.ssh_public_key_filepath)}”
+#   }
 }
