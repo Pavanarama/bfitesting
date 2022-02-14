@@ -21,7 +21,7 @@ resource "google_compute_instance" "default" {
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
-  tags = ["foo", "bar"]
+  tags = ["First_VM"]
 
   boot_disk {
     initialize_params {
@@ -43,14 +43,6 @@ resource "google_compute_instance" "default" {
   }
 
   metadata = {
-    foo = "bar"
-  }
-
-  metadata_startup_script = "echo hi > /test.txt"
-
-  service_account {
-    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = google_service_account.default.email
-    scopes = ["cloud-platform"]
+    sshKey = “debian:${file(var.ssh_public_key_filepath)}”
   }
 }
