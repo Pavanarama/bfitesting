@@ -11,7 +11,7 @@ provider "google" {
   # Configuration options
 }
 
-resource "google_service_account" "default" {
+resource "google_service_account" "terraformtesting" {
   account_id   = "b770b1f2f5fc25f0e220f335dc656d685a597c3e"
   display_name = "Service Account"
 }
